@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper text-ink antialiased;
+    font-feature-settings: "ss01", "cv01";
+  }
+  ::selection {
+    @apply bg-accent text-paper;
+  }
+  h1, h2, h3, h4 {
+    @apply font-serif tracking-[-0.01em];
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-shell px-5 sm:px-7;
+  }
+  .hairline {
+    @apply border-line;
+  }
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.22em] text-accent-ink;
+  }
+  .link-underline {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-ink after:transition-all hover:after:w-full;
+  }
+  .field {
+    @apply w-full rounded-lg border border-line bg-surface px-3.5 py-2.5 text-sm text-ink
+      placeholder:text-faint outline-none transition focus:border-ink/40 focus:ring-2 focus:ring-ink/5;
+  }
+}
+
+/* subtle paper grain so flat color doesn't feel sterile */
+.grain {
+  background-image: radial-gradient(rgba(27, 24, 20, 0.025) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
